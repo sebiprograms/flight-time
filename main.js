@@ -6,7 +6,14 @@ async function flightData() {
     const response = await fetch(`http://api.aviationstack.com/v1/flights?access_key=${API_KEY}`, {mode: 'cors'})
     const data = await response.json()
     console.log(data)
+    return data
 }
 
+function displayFlightData(data) {
+    let p = document.createElement('p')
+    p.textContent = data
+}
 
-flightData()
+let data = flightData()
+
+displayFlightData(data)
